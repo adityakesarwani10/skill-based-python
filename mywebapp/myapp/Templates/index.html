@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1151dc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            width: 400px;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 5px;
+            height: 50vh;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            display: block;
+            margin-bottom: 10px;
+            margin-top: 5px;
+            padding: 10px;
+            width: 90%;
+            border: 2px solid #ccc;
+
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        h1 {
+            margin-bottom: 20px;
+            align-items: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="/submit/">
+        <div class="container">
+            <h1>Welcome to Django</h1>
+            <div style="margin-bottom: 20px;">
+                <span>Username: </span>
+                <input type="text" name="username" placeholder="Enter your username" >
+            </div>
+            <div style="margin-bottom: 20px;">
+                <span>Email: </span>
+                <input type="email" name="email" placeholder="Enter your email" >
+            </div> 
+            <div style="margin-bottom: 20px;">
+                <span>Subject: </span>
+                <input type="text" name="subject" placeholder="Enter the subject" >
+            </div> 
+            <button type="submit" style="margin-top: 0.5rem; width: 100%;">Submit</button>
+        </div>
+    </form>
+</body>
+</html>

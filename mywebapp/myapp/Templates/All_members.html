@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <h1>Member List</h1>
+
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Email</th>
+        </tr>
+        {% for x in members %}
+        <tr>
+            <td>{{ x.name }}</td>
+            <td>{{ x.subject }}</td>
+            <td>{{ x.email }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="3">No data found</td>
+        </tr>
+    </table>
+</body>
+</html>
