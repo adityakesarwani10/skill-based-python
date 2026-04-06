@@ -18,10 +18,12 @@
             <td>{{ x.subject }}</td>
             <td>{{ x.email }}</td>
         </tr>
-        {% endfor %}
+        {% empty %}
         <tr>
             <td colspan="3">No data found</td>
         </tr>
+        {% endfor %}
+        
     </table>
 </body>
 </html>

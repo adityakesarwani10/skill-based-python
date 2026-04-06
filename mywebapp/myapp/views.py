@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.db import IntegrityError
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.template import loader
+from .models import MyTable 
+
 # Create your views here.
 
 def home(request):
@@ -42,3 +46,31 @@ def submit(request):
 def number(request):
     members = {1,2,3,4,5,6,7,8,9,10}
     return render(request, 'number.html', {'members': members})
+
+def insert_data(request):
+    # return render(request, 'form.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        subject = request.POST.get('subject')
+        email = request.POST.get('email')
+
+        try:
+            MyTable.objects.create(name=name, subject=subject, email=email)
+            messages.success(request, 'Data inserted successfully!')
+        except IntegrityError as e:
+            messages.error(request, f'Error inserting data: {str(e)}')
+            return render(request, 'form.html', {'error': str(e)})
+        return redirect('form.html')  # Redirect to a success page after insertion
+    
+    return render(request, 'form.html')
+
+def values(request):
+    mymembers = MyTable.objects.all().values()
+
+    template = loader.get_template('All_members.html')
+
+    context = {
+        "members" : mymembers
+    }
+    return HttpResponse(template.render(context, request))
+

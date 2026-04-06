@@ -14,4 +14,8 @@ urlpatterns = [
     path('testing2/',views.testing2,name="testing2"),
     path('submit/',views.submit,name="submit"),
     path('number/',views.number,name="number"),
+    path('insert_data/POST',views.insert_data,name="insert_data"),
+    path('insert_data/',views.insert_data,name="insert_data"),
+    # path('form/',views.insert_data,name="form"),
+    path('values/', views.values,name='values')
 ]
